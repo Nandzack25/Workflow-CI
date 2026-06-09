@@ -34,7 +34,6 @@ def main(n_estimators=100, max_depth=None, random_state=42):
         
         mlflow.sklearn.log_model(model, "random_forest_model")
         
-        # Write run_id to file
         with open("run_id.txt", "w") as f:
             f.write(run.info.run_id)
         
