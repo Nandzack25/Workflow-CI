@@ -1,0 +1,16 @@
+# MLflow runs and artifacts
+mlruns/
+**/mlruns/
+run_id.txt
+**/run_id.txt
+
+# Python caches and build files
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

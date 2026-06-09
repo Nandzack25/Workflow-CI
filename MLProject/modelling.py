@@ -16,9 +16,12 @@ def main(n_estimators=100, max_depth=None, random_state=42):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     with mlflow.start_run() as run:
-        mlflow.log_param("n_estimators", n_estimators)
-        mlflow.log_param("max_depth", max_depth)
-        mlflow.log_param("random_state", random_state)
+        # Check if parameters are already logged by MLflow Projects to avoid collisions
+        existing_params = mlflow.get_run(run.info.run_id).data.params
+        if "max_depth" not in existing_params:
+            mlflow.log_param("n_estimators", n_estimators)
+            mlflow.log_param("max_depth", max_depth)
+            mlflow.log_param("random_state", random_state)
         
         model = RandomForestRegressor(n_estimators=n_estimators, max_depth=max_depth, random_state=random_state)
         model.fit(X_train, y_train)
@@ -47,4 +50,7 @@ if __name__ == "__main__":
     parser.add_argument("--max_depth", type=int, default=None)
     parser.add_argument("--random_state", type=int, default=42)
     args = parser.parse_args()
-    main(n_estimators=args.n_estimators, max_depth=args.max_depth, random_state=args.random_state)
+    max_depth = args.max_depth
+    if max_depth == -1:
+        max_depth = None
+    main(n_estimators=args.n_estimators, max_depth=max_depth, random_state=args.random_state)
