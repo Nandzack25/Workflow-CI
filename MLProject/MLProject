@@ -1,7 +1,6 @@
 name: student-performance-retraining
-conda_env: conda.yaml
+
 entry_points:
-#
   main:
     parameters:
       n_estimators: {type: int, default: 100}

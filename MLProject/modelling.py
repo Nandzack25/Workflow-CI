@@ -31,6 +31,7 @@ def main(n_estimators=100, max_depth=None, random_state=42):
         mlflow.log_metric("mae", mae)
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
+        
         mlflow.sklearn.log_model(model, "random_forest_model")
         
         # Write run_id to file
