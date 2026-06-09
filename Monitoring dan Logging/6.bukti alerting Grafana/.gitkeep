@@ -1,0 +1,7 @@
+# Folder untuk menyimpan bukti alerting Grafana.
+# Letakkan tangkapan layar alerting Anda di sini (minimal 3 alert berbeda untuk Advanced) dengan format:
+# 1.rules_<metriks>
+# 2.notifikasi_<metriks>
+# 3.rules_<metriks>
+# 4.notifikasi_<metriks>
+# dst.

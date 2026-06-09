@@ -1,0 +1,5 @@
+# Folder untuk menyimpan bukti monitoring Grafana.
+# Letakkan tangkapan layar monitoring metrik Grafana Anda di sini (minimal 10 metrik berbeda untuk Advanced) dengan format:
+# 1.monitoring_<metriks>
+# 2.monitoring_<metriks>
+# dst.
