@@ -31,11 +31,9 @@ def main(n_estimators=100, max_depth=None, random_state=42):
         mlflow.log_metric("mae", mae)
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
-        
-        # Log model
         mlflow.sklearn.log_model(model, "random_forest_model")
         
-        # Simpan run_id ke file untuk diambil oleh workflow
+        # Write run_id to file
         with open("run_id.txt", "w") as f:
             f.write(run.info.run_id)
         

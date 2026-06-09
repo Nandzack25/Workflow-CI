@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  MLFLOW_TRACKING_URI: "file:./mlruns"
+
 jobs:
   retrain:
     runs-on: ubuntu-latest
@@ -40,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: model-artifacts
-        path: MLProject/mlruns/*/
+        path: MLProject/mlruns/
         retention-days: 30
 
     - name: Build Docker image using mlflow models build-docker
